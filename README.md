@@ -26,5 +26,59 @@ Passive Infrared (PIR) sensors are electronic devices that detect motion by sens
 
 **Procedure:**
 
+1. Log in to Tinkercad, go to Circuits, and click Create New Circuit.
+
+2. Add the Arduino Uno, PIR sensor, optional LED, 220-ohm resistor (if using LED), and jumper wires.
+
+3. Connect PIR sensor VCC to 5V, GND to GND, and OUT to digital pin 2 on the Arduino.
+
+4. If using an external LED, connect anode to pin 13 through a 220-ohm resistor and cathode to GND.
+
+5. Open the Code editor, switch to Text mode, and write the Arduino program.
+
+6. Start the simulation and test the PIR sensor by moving the virtual motion object near it.
+
+7. If it doesn’t work, check wiring, fix any code errors, and adjust the sensor angle if needed.
+
+8. Stop the simulation and save the circuit.
+
+
+**Code:**
+
+```
+int buttonState = 0; 
+void setup() 
+{ 
+  pinMode(2, INPUT); 
+  pinMode(LED_BUILTIN, OUTPUT); 
+} 
+void loop() 
+{ 
+  buttonState = digitalRead(2); 
+  if (buttonState == HIGH) 
+  { 
+    digitalWrite(LED_BUILTIN, HIGH); 
+  } 
+  else 
+  { 
+    digitalWrite(LED_BUILTIN, LOW); 
+  } 
+  delay(10); 
+}
+```
+
+**Output:**
+
+
+<img width="1024" height="680" alt="OP" src="https://github.com/user-attachments/assets/981dd57e-f3a6-423e-9ec0-639a4b1cd907" />
+
+
+
+**Result:**
+
+The PIR sensor successfully detected motion and triggered the Arduino to turn ON the built-in LED. The LED remained OFF when no motion was present, confirming correct circuit and 
+code functionality.
+
+
 
 
